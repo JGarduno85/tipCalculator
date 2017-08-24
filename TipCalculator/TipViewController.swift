@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TipViewController: UIViewController {
     @IBOutlet weak var totalAmountTextView: UITextView!
     @IBOutlet weak var tipPercentajeSegment: UISegmentedControl!
 
@@ -76,7 +76,12 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  let settings = segue.destination as? SettingsViewController{
             settings.segmentedSelected = self.tipPercentajeSegment.selectedSegmentIndex
+            settings.navigationItem.title = NSLocalizedString("Settings", comment: "settings title")
         }
+    }
+    
+    @IBAction func userTappedBackground(sender:Any){
+        view.endEditing(true)
     }
 
 
